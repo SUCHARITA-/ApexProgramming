@@ -30,8 +30,10 @@ Execution context with two triggers and a workflow As you can see, the field upd
  
 **This is where static variables come into play. Remember, their lifetime and scope are defined by the execution context.**
 
+```
 public Static Boolean firstcall = false;
 
+```
 
 You could use the following **design pattern** in your trigger to determine if this was the first or subsequent call for this execution context.
 
