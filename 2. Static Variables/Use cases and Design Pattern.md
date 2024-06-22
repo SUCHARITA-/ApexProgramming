@@ -126,5 +126,49 @@ try
     system.debug('An exception occurred ' + ex.getMessage());
 } 
 ```
-The challenge with above code is – **how do you test it?** It’s easy enough to test the success case. The following test method from class TestThinkingInApex does the job.
+The challenge with above code is – **how do you test it?** It’s easy enough to test the success case. 
+You would only want the exception to occur when specifically requested by a test. Static variables provide an excellent way to do this. 
+
+The fakeAccountInsertException static variable in the ThinkingAboutApex class does the job. 
+
+```
+@testvisible
+private static Boolean fakeAccountInsertionException = false;
+```
+
+The variable is marked with the @testvisible annotation to ensure that it can only be accessed from unit tests. Not that a developer would be likely to accidentally set this variable, but there’s no harm in being extra safe here.
+
+Next, modify the code to throw an exception when the fakeAccountInsertionException variable is true. One way to do this would be to place an invalid Email address in the account’s First_Contact_Email__c field during the update like this: 
+```
+try 
+{
+    if(fakeAccountInsertionException) 
+        accounts.values().get(0).First_Contact_Email__c = 'hello';
+    update accounts.values();
+} catch(Exception ex)
+```
+Next, create a new test class that is identical to the previous one except that it sets the fakeAccountInsertionException variable before inserting the contacts.
+
+```
+ThinkingInApex.fakeAccountInsertionException = true;
+insert contacts;
+```
+Finally, change the new test class to validate the failure instead of the success condition:
+
+```
+system.assertNotEquals(ct.LastName, actToTest.First_Contact_Name__c);
+system.assertNotEquals(ct.Email, actToTest.First_Contact_Email__c);
+```
+
+
+Static variables are a key part of this design pattern as well. In this example, you can add a static variable disableContactTriggers to the ThinkingAboutApex class:
+
+```
+trigger OnContactInsert on Contact (after insert) {
+    if(ThinkingInApex.disableContactTriggers) return;
+    ThinkingInApex.afterInsertContact(trigger.new);
+}
+``` 
+
+
  
