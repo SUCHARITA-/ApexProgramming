@@ -171,4 +171,5 @@ trigger OnContactInsert on Contact (after insert) {
 ``` 
 
 
- 
+ **Debug log when running the test, you’ll see a debug message while covering exception**
+![alt text](<Screenshot 2024-06-29 at 10.25.09 PM.png>)
