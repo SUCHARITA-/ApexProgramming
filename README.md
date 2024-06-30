@@ -1,5 +1,7 @@
 # <font color="red">ApexProgramming</font>
 
+# $${\color{green}ApexProgramming}$$
+
 ### Hi there :wave:
 
 This repo is my learning on **Advance Apex Programming** book by **Dan Appleman**.
