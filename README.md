@@ -1,6 +1,4 @@
-# <font color="red">ApexProgramming</font>
-
-# {\color{green}ApexProgramming}
+# ApexProgramming
 
 ### Hi there :wave:
 
