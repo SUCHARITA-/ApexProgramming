@@ -1,4 +1,4 @@
-### <u>The Execution Context in Apex</u>
+### The Execution Context in Apex
 
 **An execution context has two characteristics:**
 

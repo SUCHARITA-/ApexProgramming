@@ -1,4 +1,4 @@
-**Using Static variables in Apex**
+### Using Static variables in Apex
 
 1. **Maintaining data across trigger invocations**
 *   Let’s say you have a computationally intensive operation that you wish to perform in a number of different scenarios. For example, reassigning account ownership based on some rules a user has defined. You might want to do this after a field value has changed on the account, or any of its contacts or opportunities.

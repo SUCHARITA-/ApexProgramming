@@ -1,4 +1,4 @@
-### <u>Static Variables in Apex</u>
+### Static Variables in Apex
 
 **Static variables in traditional languages**
 Developers are accustomed to use static variables in a variety of design patterns, such as sharing data between classes, counting pr maintaining lists of class instances etc.
