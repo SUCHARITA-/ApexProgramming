@@ -1,6 +1,6 @@
 # <font color="red">ApexProgramming</font>
 
-# $${\color{green}ApexProgramming}$$
+# {\color{green}ApexProgramming}
 
 ### Hi there :wave:
 
