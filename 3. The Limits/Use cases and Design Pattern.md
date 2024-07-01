@@ -25,5 +25,20 @@ CPU time limits do not include time spent performing database operations and mos
 
 6. One **common design pattern** is to use a custom field on an object to indicate that an operation is pending, then to query on that flag during a future operation. 
 
-Another approach is to use a custom object that you create to hold all of the information needed to perform the future operation, then just query for instances of that object (deleting them after the operation is complete). 
+7. Another approach is to use a custom object that you create to hold all of the information needed to perform the future operation, then just query for instances of that object (deleting them after the operation is complete). 
 
+
+**Benchmarking**
+It has always been important to measure the performance of Apex code in order to determine where you should invest the most effort with regards to optimizing your code. With regards to CPU time limits, it is important to know how to measure not just the performance of your code, but also the performance of built-in Salesforce functionality.
+
+Despite this, there are a number of approaches you can use to estimate the performance of a built-in function. All of these approaches are predicated on two facts:
+
+1.  The resolution of the built-in CPU time measurement system is one millisecond.
+2. The most accurate results can be obtained by using as much CPU time as possible without exceeding the limit.
+
+The trick is to place the operation you want to measure inside of a loop, perform the operation multiple times, then divide the time spent by the number of iterations.
+
+Check the Apex class and test class from Class folder, for benchmarking.
+
+Note: Set the below debug log, before running the test class.
+![alt text](image.png)
