@@ -29,6 +29,7 @@ CPU time limits do not include time spent performing database operations and mos
 
 
 **Benchmarking**
+
 It has always been important to measure the performance of Apex code in order to determine where you should invest the most effort with regards to optimizing your code. With regards to CPU time limits, it is important to know how to measure not just the performance of your code, but also the performance of built-in Salesforce functionality.
 
 Despite this, there are a number of approaches you can use to estimate the performance of a built-in function. All of these approaches are predicated on two facts:
@@ -42,3 +43,22 @@ Check the Apex class and test class from Class folder, for benchmarking.
 
 Note: Set the below debug log, before running the test class.
 ![alt text](image.png)
+
+
+**Other Limits**
+    1. **DML Limits**
+        Combine DML operations on each object type into a single bulk DML operation.
+        If your program flow calls for DML operations at different places in your code, don’t perform the DML operation right away. Instead, store a reference to the object in a list, set or Map. Then perform a DML operation on all objects at once as the last part of your operation.
+    2. **Heap Size**
+        While performing SOQL query only required fields.
+
+        Instead of storing objects in static variable, store Object Ids and requery them.
+
+        User loop query syntax for SOQL as below to avoid heap limit when processing large number of records.
+
+        ```
+            for(Contact con : [SELECT Id, Name FROM Contact]){
+                //perform task
+            }
+        ```
+
