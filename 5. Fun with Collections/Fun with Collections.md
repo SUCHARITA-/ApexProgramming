@@ -37,7 +37,7 @@ The **right design pattern** is to use the object ID as the key or set value.
 
 There are good reasons to design your code so that you can add functionality to a trigger, or combine all of the updates required by several distinct triggers or classes into a single update operation. For this reason, you should always use a map that is keyed to the object ID (or other unique field). 
 
-```
+```JAVA
 Map<ID,Contact> contactsToUpdate = new Map<ID, Contact>();
       
 // First set of operations
@@ -73,7 +73,7 @@ Dynamic SOQL is used to query objects when you don’t know ahead of time what f
 
 Clearly, unless your field list is hardcoded, it’s a good idea to test for and remove any duplicates. By far the easiest way to do this is using a Set, as Sets ensure that every element is unique. You might try to maximize efficiency by taking the following approach: 
 
-```
+```JAVA
 Set<String> fieldSet = new Set<String>();
 String fields = string.join(fieldList,',');
 fieldSet.addAll(fields.toLowerCase().split(','));
@@ -84,7 +84,7 @@ fieldList = new List<String>(fieldSet);
 
 A better approach
 
-```
+```JAVA
 Set<String> fieldSet = new Set<String>();
 String ourprefix = 'xyz' + '__';
 
