@@ -114,6 +114,9 @@ Now see the Apex snippets, to see things in action.
 ![alt text](GithubApiCalloutController.png)
 
 
+---
+**JSON Deserialization**
+
 Now one more important thing (which can give you hard time :smile) is the type of response we are getting. It can be XML or JSON.
 
 We need to read through  or De-serialize JSON and fetch the data which we need for further processing or showing it to UI.
@@ -124,8 +127,21 @@ Now the question is how to do it ?. Well below is the example of sample JSON and
 
 On the left on side, we have sample JSON and right-hand side we have JSON2Apex Class where we are deserializing it.
 
-We can use tools like AdminBooster.com(https://www.adminbooster.com/tool/json2apex) which creates Apex class from JSON Nodes and we can use that class to get desire result. We can understand more about JSON De-serialization with (https://opfocus.com/blog/json-deserialization-techniques-in-salesforce/)
+We can use tools like AdminBooster.com (https://www.adminbooster.com/tool/json2apex) which creates Apex class from JSON Nodes and we can use that class to get desire result. We can understand more about JSON De-serialization with (https://opfocus.com/blog/json-deserialization-techniques-in-salesforce/)
 
 
 Below example of using JSON Deserialization in Apex Class.
-![alt text](JSONApex.png)
+
+![alt text](UsingDeserializedJSON.png)
+
+---
+
+### Miscellaneous
+
+There are few important topics, which need to be known for best practices in Integration. 
+
+**Named Credentials**
+
+**External Credentials**
+
+**Custom Settings**
